@@ -8,19 +8,12 @@
 
 .product-filter-category-container {
   flex: 1;
-  margin-right: 10px;
+  /* margin-right: 10px; */
 }
 
-.btn-product-filter-clear {
-  font-weight: bold;
-  border-radius: 10px;
-}
-
-.btn-product-filter-word {
-  display: none;
-}
 
 .product-filter-select__control {
+  height: 50px !important;
   font-size: 1em;
   letter-spacing: -0.015em;
   color: #e1e1e1 !important;
