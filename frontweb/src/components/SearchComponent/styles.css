@@ -2,6 +2,7 @@
   width: 300px;
 }
 
+
 .product-filter-bottom-container {
   display: flex;
 }
@@ -19,7 +20,9 @@
   color: #e1e1e1 !important;
   background-color: #6c6c6c !important;
   border: 1px solid #e1e1e1 !important;
+  box-shadow: none !important;
 }
+
 
 .product-filter-select__placeholder {
    color: #e1e1e1 !important;
