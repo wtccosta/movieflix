@@ -1,0 +1,45 @@
+.product-card {
+  padding: 0;
+  height: 340px;
+  /* width: 300px; */
+  margin: 0 0 20px 0;
+}
+
+.card-top-container img {
+  width: 100%;
+  margin-top: 25px;
+}
+
+.card-bottom-container {
+  padding: 15px 20px 55px 20px;
+}
+
+.movie-card-title {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 27px;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+}
+
+.movie-card-year {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: -0.015em;
+  color: #ffc700;
+}
+
+.movie-card-subtitle {
+  font-size: 14px;
+  line-height: 19px;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+}
+
+@media (min-width: 360px) {
+  .product-card {
+    flex: unset;
+    min-height: 360px;
+  }
+}

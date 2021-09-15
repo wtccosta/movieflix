@@ -1,6 +1,5 @@
-import { ReactComponent as ArrowIcon } from 'assets/images/arrow.svg';
 import { AxiosRequestConfig } from 'axios';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import { requestBackend } from 'util/requests';
 import ProductInfoLoader from './ProductInfoLoader';
@@ -30,7 +29,7 @@ const ProductDetails = () => {
   const [products, setProducts] = useState<Review[]>([]);
   const [hasError, setHasError] = useState<boolean>(false);
 
-  const loadData = () => {
+  const loadData = useCallback(() => {
     const params: AxiosRequestConfig = {
       url: `/movies/${movieId}/reviews`,
       withCredentials: true,
@@ -43,11 +42,11 @@ const ProductDetails = () => {
       .finally(() => {
         setIsLoading(false);
       });
-  };
+  }, [setProducts, movieId])
 
   useEffect(() => {
     loadData();
-  }, []);
+  }, [loadData]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setHasError(false);
