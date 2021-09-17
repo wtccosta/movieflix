@@ -1,3 +1,4 @@
+import './styles.css';
 import { AxiosRequestConfig } from 'axios';
 import { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
@@ -8,8 +9,9 @@ import { Review } from 'types/review';
 import { hasAnyRoles } from 'util/auth';
 
 import { ReactComponent as StarImage } from 'assets/images/star.svg';
+import { toast } from 'react-toastify';
 
-import './styles.css';
+import MovieCardDetails from 'components/MovieCardDetails';
 
 type UrlParams = {
   movieId: string;
@@ -26,7 +28,7 @@ const ProductDetails = () => {
     review: '',
   });
   const [isLoading, setIsLoading] = useState(false);
-  const [products, setProducts] = useState<Review[]>([]);
+  const [reviews, setreviews] = useState<Review[]>([]);
   const [hasError, setHasError] = useState<boolean>(false);
 
   const loadData = useCallback(() => {
@@ -37,12 +39,12 @@ const ProductDetails = () => {
 
     requestBackend(params)
       .then((response) => {
-        setProducts(response.data);
+        setreviews(response.data);
       })
       .finally(() => {
         setIsLoading(false);
       });
-  }, [setProducts, movieId])
+  }, [setreviews, movieId]);
 
   useEffect(() => {
     loadData();
@@ -58,6 +60,7 @@ const ProductDetails = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (formData.review === '') {
+      toast.error('Não é permitido cadastro de comentário vazio!');
       setHasError(true);
       return;
     }
@@ -73,8 +76,14 @@ const ProductDetails = () => {
 
     requestBackend(params)
       .then((response) => {
+        toast.success('Comentário cadastrado com sucesso!');
         formData.review = '';
         loadData();
+      })
+      .catch((error) => {
+        if (error.response.data.status === 404)
+          toast.error('Recurso não encontrado!');
+        else toast.error(error.response.data.message);
       })
       .finally(() => {
         setIsLoading(false);
@@ -83,7 +92,11 @@ const ProductDetails = () => {
 
   return (
     <div className="product-details-container">
-      <h3>Tela detalhes do filme id: {movieId}</h3>
+      <div className="row">
+        <div className="col-12">
+          <MovieCardDetails movieId={Number.parseInt(movieId)} />
+        </div>
+      </div>
       <div className="row">
         <div className="col">
           {isLoading ? (
@@ -127,7 +140,7 @@ const ProductDetails = () => {
             <ProductDetailsLoader />
           ) : (
             <div className="base-card product-details-card">
-              {products?.map((item, key) => (
+              {reviews?.map((item, key) => (
                 <div className="review-content" key={item.id}>
                   <div className="rv-title">
                     <div>

@@ -42,4 +42,7 @@
     flex: unset;
     min-height: 360px;
   }
+  .movie-card-details-bottom-container{
+    width: 500px;
+  }
 }
