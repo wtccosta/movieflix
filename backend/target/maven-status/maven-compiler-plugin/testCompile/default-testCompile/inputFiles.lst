@@ -1,9 +1,0 @@
-/home/wardes/DEVSUPERIOR_BOOTCAMP/movieflix/backend/src/test/java/com/devsuperior/movieflix/entities/MovieTests.java
-/home/wardes/DEVSUPERIOR_BOOTCAMP/movieflix/backend/src/test/java/com/devsuperior/movieflix/controllers/GenreControllerIT.java
-/home/wardes/DEVSUPERIOR_BOOTCAMP/movieflix/backend/src/test/java/com/devsuperior/movieflix/controllers/MovieControllerIT.java
-/home/wardes/DEVSUPERIOR_BOOTCAMP/movieflix/backend/src/test/java/com/devsuperior/movieflix/entities/RoleText.java
-/home/wardes/DEVSUPERIOR_BOOTCAMP/movieflix/backend/src/test/java/com/devsuperior/movieflix/entities/GenreTests.java
-/home/wardes/DEVSUPERIOR_BOOTCAMP/movieflix/backend/src/test/java/com/devsuperior/movieflix/entities/ReviewTests.java
-/home/wardes/DEVSUPERIOR_BOOTCAMP/movieflix/backend/src/test/java/com/devsuperior/movieflix/tests/TokenUtil.java
-/home/wardes/DEVSUPERIOR_BOOTCAMP/movieflix/backend/src/test/java/com/devsuperior/movieflix/entities/UserTests.java
-/home/wardes/DEVSUPERIOR_BOOTCAMP/movieflix/backend/src/test/java/com/devsuperior/movieflix/controllers/ReviewResourceIT.java
